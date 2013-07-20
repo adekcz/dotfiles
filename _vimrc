@@ -1,4 +1,4 @@
-" ===================================
+
 "     GENERAL SETTINGS
 " ===================================
 set nocompatible "needs to be at the begginign
@@ -19,12 +19,13 @@ colorscheme Simpleandfriendly
 set textwidth=79
 "set colorcolumn=85
 set so=7 "there will always be 7 lines under/over cursor when approaching end of screen
-"http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
-"dynamically switches between number and relative number
+""http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+""dynamically switches between number and relative number
 autocmd FocusLost * :set number
 autocmd InsertEnter * :set number
 autocmd InsertLeave * :set relativenumber
-autocmd CursorMoved * :set relativenumber
+set relativenumber
+"autocmd CursorMoved * :set relativenumber
 set foldmethod=syntax
 set showcmd
 set backspace=2 " backspace can behave weirdly, =2 is what one would expect
@@ -106,8 +107,8 @@ nmap go o<ESC>k
 nmap gO O<ESC>j
 
 " Treat long lines as break lines (useful when moving around in them)
-"map j gj
-"map k gk
+map j gj
+map k gk
 
 "vimtip 464
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/

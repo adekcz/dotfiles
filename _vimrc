@@ -14,7 +14,8 @@ set nobackup "beware vim/vimrc_example file, it overrides...
 "stevelosh
 "set undofile "test option, if you are not too much annoyed
 set modelines=0 "better security somehow
-
+ set clipboard=unnamed  "http://vim.wikia.com/wiki/Accessing_the_system_clipboard
+ 
 " ===================================
 "     EDITOR
 " ===================================
@@ -41,7 +42,7 @@ set wildmode=longest,list
 set ttyfast "fast terminal-> bigger packets of chars are processed at once
 set visualbell "screen flick instead of beep
 set list
-set listchars=tab:»\ ,eol:¬
+set listchars=tab:Â»\ ,eol:Â¬
 nmap <leader>l :set list!<CR> "toggles invis chars
 
 "     INDENTATION 

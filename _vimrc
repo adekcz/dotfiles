@@ -1,6 +1,9 @@
-source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/defaults.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
+if has('gui_running')
+  set guifont=Lucida_Console:h11
+endif
 
 "     GENERAL SETTINGS
 " ===================================
@@ -10,12 +13,17 @@ set lines=40 columns=100
 set history=1000
 set nowritebackup "files edited on destop don't move (since vim does not recreate, but reuse file)
 set noswapfile
-set nobackup "beware vim/vimrc_example file, it overrides...
+set nobackup 
+set noundofile 
 "stevelosh
 "set undofile "test option, if you are not too much annoyed
 set modelines=0 "better security somehow
+
  set clipboard=unnamed  "http://vim.wikia.com/wiki/Accessing_the_system_clipboard
- 
+
+"http://stackoverflow.com/questions/5166652/how-to-view-utf-8-characters-in-vim-or-gvim
+set encoding=utf-8
+set fileencoding=utf-8
 " ===================================
 "     EDITOR
 " ===================================
@@ -82,12 +90,26 @@ call pathogen#infect()
 call pathogen#helptags()
 filetype plugin indent on
 
+"jshint2
+"let jshint2_read = 1
+"let jshint2_save = 1
 
+"syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_enable_balloons = 1
+let g:syntastic_python_pylint_args = "--load-plugins pylint_django"
 "easymotion - default is <leader><leader>
-let g:EasyMotion_leader_key = '<Leader>'
+"let g:EasyMotion_leader_key = '<Leader>'
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+"let g:ctrlp_map = '<c-p>'
+"let g:ctrlp_cmd = 'CtrlP'
 
 "" powerline
 ""set rtp+=C:\\programs\\Vim\\vimfiles\\bundle\\powerline\\powerline\\bindings\\vim
@@ -97,6 +119,26 @@ let g:ctrlp_cmd = 'CtrlP'
 "vim-airline
 set laststatus=2 " Always display the statusline in all windows
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+autocmd VimEnter * AirlineToggleWhitespace
+
+"easymotion
+map <Leader> <Plug>(easymotion-prefix)
+"let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+"nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 " ===================================
 "     KEYMAPPINGS
 " =======
@@ -125,8 +167,7 @@ map k gk
 "vimtip 464
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
-
-
 "obsolete
 "set ruler  " no need with powerline
+
 

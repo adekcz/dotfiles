@@ -6,3 +6,8 @@ set smartcase
 set incsearch
 nnoremap <silent> <C-l> :nohl<CR><C-l>
 set ignorecase
+
+"will create line above, ubder current, without going into inser.
+"very useful with . for multiple empy line creations
+nmap go o<ESC>k
+nmap gO O<ESC>j

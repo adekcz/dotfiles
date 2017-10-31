@@ -6,6 +6,8 @@ git_prompt.sh: C:\Program Files\Git\etc\profile.d
 
 
 ##TODO
+added autohotkey (https://autohotkey.com/) script to handle window snapping to vertical monitor (https://gist.github.com/AWMooreCO/1ef708055a11862ca9dc - advanced window snap)
+
 http://www.thegeekstuff.com/2009/03/15-practical-unix-grep-command-examples/
 7. Highlighting the search using GREP_OPTIONS
 

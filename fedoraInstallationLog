@@ -1,0 +1,17 @@
+#for fedora
+su root
+sudo usermod -aG wheel mkeda
+su mkeda
+
+sudo dnf install nvim
+sudo dnf install git
+git clone https://github.com/adekcz/dotfiles.git
+
+sudo dnf install meld
+
+sudo visudo ->
+s/Defaults    env_reset/Defaults    env_reset,timestamp_timeout=1440/
+
+#rpm fusion repository
+#https://docs.fedoraproject.org/en-US/quick-docs/setup_rpmfusion/
+
